@@ -6,11 +6,6 @@
 // create eventlistener button for search Bar
 
 
-
-
-
-
-
 const apiKey = ''
 
 var findCoktail = function(event) {
