@@ -7,6 +7,8 @@
 
 
 const apiKey = ''
+var searchBtn = document.querySelector("#submit-btn")
+
 
 var findCoktail = function(event) {
     var cocktailApi = ``
@@ -35,3 +37,5 @@ var findMocktail = function(event) {
 }
 // create functions with above variables?
 
+searchBtn.on('click', findCoktail)
+searchBtn.on('click', findMocktail)
