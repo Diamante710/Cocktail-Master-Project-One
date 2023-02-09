@@ -20,54 +20,39 @@
         </div>
 
         <!-- //list with check list drop down options, each with a none option// -->
-        <div class="create">
-            <h2>Mix it to Start!</h2>
-            <ul>Alcohol
-                <li>Vodka</li>
-                <li>Tequila</li>
-                <li>Whiskey</li>
-                <li>Mezcal</li>
-                <li>Gin</li>
-                <li>Rum</li>
-                <li>Brandy</li>
-                <li>Scotch</li>
-                <li>Red Wine</li>
-                <li>White Wine</li>
-                <li>Champagne</li>
-                <li>Beer</li>
-            </ul>
-            <ul>Non-Alcohol
-                <li>Club</li>
-                <li>Coke</li>
-                <li>Sprite</li>
-                <li>Orange Juice</li>
-                <li>Pineapple Juice</li>
-                <li>Apple Juice</li>
-                <li>Coffee</li>
-            </ul>
-            <ul>Liqueurs
-                <li>Amaretto</li>
-                <li>Baileys</li>
-                <li>Kahlua</li>
-                <li>RumChata</li>
-                <li>Grand Marnier</li>
-                <li>Pucker</li>
-                <li>Frangelico</li>
-                <li>Fireball</li>
-                <li>Southern Comfort</li>
-            </ul>
+        <div class="alcohol">
+            <h2>Pick Your Poison</h2>
 
-            <button type="submit" id="submit-btn">
-        </div>
+            <label id="drink-select">Choose an alcohol:</label>
 
-        <!-- returns list of recipes that can be made -->
-        <div class="recipes">
-            <h3>Your Concoctions!</h3>
-            <div Class="list"></div>
-            <p></p>
-        </div>
+            <select name="drinks" id="spirits">
+                <option value="">--Please choose an option--</option>
+                <option value="vodka">Vodka</option>
+                <option value="whiskey">Whiskey</option>
+                <option value="tequila">Tequila</option>
+                <option value="rum">Rum</option>
+                <option value="gin">Gin</option>
+                <option value="mezcal">Mezcal</option>
+                <option value="brandy">Brandy</option>
+                <option value="scotch">Scotch</option>
+                <option value="red wine">Red Wine</option>
+                <option value="white wine">White Wine</option>
+                <option value="beer">Beer</option>
+                <option value="champagne">Champagne</option>
+            </select>
+
+            <!-- returns list of recipes that can be made -->
+            <div class="recipes">
+                <h3>Your Concoctions!</h3>
+                <div id="container">
+                    <div id="drink-name"></div>
+                    <img id="image">
+                    <div id="ingredients"></div>
+                </div>
+            </div>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./Assets/script.js"></script>
 </body>
 

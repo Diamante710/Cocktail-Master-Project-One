@@ -4,38 +4,47 @@
 // need to append variables to parts of html
 
 // create eventlistener button for search Bar
+var nameEl = $('#drink-name')
 
+$(document).ready(function () {
+    $('select').on('change', function () {
+        var selectedValue = $(this).val()
+        console.log(selectedValue)
+        var api = `https://thecocktaildb.com/api/json/v1/1/filter.php?i=` + selectedValue
+        console.log(api)
+        fetch(api)
+            .then(function (response) {
+                console.log(response)
+                return response.json()
+            })
+            .then(function (data) {
+                console.log(data)
+                var name = data.drinks[0].strDrink
+                nameEl.text("Drink Name: " + name)
+                var image = $('#image')
+                var thumb = data.drinks[0].strDrinkThumb
+                image.attr('src', thumb)
+                image.attr('data', data.drinks[0].idDrink)
+                // image.append
+                // console.log(nameEl.text(name))
+                // for (let i = 0; i < 10; i++) {
+                // }
+                return data;
+            })
+    })
+    $('#image').on(('click'), getIngredients)
+})
 
-const apiKey = ''
-var searchBtn = document.querySelector("#submit-btn")
-
-
-var findCoktail = function(event) {
-    var cocktailApi = ``
-    fetch (cocktailApi)
+function getIngredients (){
+    var idDrink = $('#image').attr('data')
+    console.log(idDrink)
+    var newApi = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`
+    fetch(newApi)
     .then(function (response) {
-    console.log (response)
-    return Response.json();
+        console.log(response)
+        return response.json()
     })
     .then(function (data) {
         console.log(data)
-        return data;
-    });
-}
-
-var findMocktail = function(event) {
-    var mocktailApi = ``
-    fetch (mocktailApi)
-    .then(function (response) {
-    console.log (response)
-    return Response.json();
     })
-    .then(function (data) {
-        console.log(data)
-        return data;
-    });
 }
-// create functions with above variables?
-
-searchBtn.on('click', findCoktail)
-searchBtn.on('click', findMocktail)
