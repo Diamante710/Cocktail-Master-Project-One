@@ -6,78 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/style.css">
-    <title>Cocktails & Mocktails Mixer</title>
+    <title>Cocktail Mixer</title>
 </head>
 
 <body>
-    <header>Cocktails & Mocktails to Flock Your Tails
+    <header>Cocktails to Flock Your Tails
     </header>
 
     <main>
         <div class="how-to">
-            <h1>How to Flock One's Tail Properly</h1>
-            <p>Welcome! Are you a seasoned cocktail maker or a newb looking to become a cocktail connoisseur? Whatever you are, this is your one stop place to make the perfect drink to "flock" you (or your guest's) tail! Put in any combination of alocohols, liquers, and mixers to find your next delicious concoction!</p>
+            <h1>How to Flock Ones Tail Properly</h1>
+            <p></p>
         </div>
 
         <!-- //list with check list drop down options, each with a none option// -->
-        <div class="create">
-            <h2>Mix it to Start!</h2>
-            <ul>Alcohol
-                <li>Vodka</li>
-                <li>Tequila</li>
-                <li>Whiskey</li>
-                <li>Mezcal</li>
-                <li>Gin</li>
-                <li>Rum</li>
-                <li>Brandy</li>
-                <li>Scotch</li>
-                <li>Red Wine</li>
-                <li>White Wine</li>
-                <li>Champagne</li>
-                <li>Beer</li>
-            </ul>
-            <ul>Non-Alcohol
-                <li>Club Soda</li>
-                <lil>Ginger Beer</lil>
-                <li>Bloody Mary Mix</li>
-                <li>Pina Colada Mix</li>
-                <li>Mojito Mix</li>
-                <li>Tonic Water</li>
-                <li>Cranberry Juice</li>
-                <li>Pepsi</li>
-                <lil>Water</lil>
-                <li>Coke</li>
-                <li>Sprite</li>
-                <li>Orange Juice</li>
-                <li>Pineapple Juice</li>
-                <li>Apple Juice</li>
-                <li>Coffee</li>
-            </ul>
-            <ul>Liqueurs
-                <li>Amaretto</li>
-                <lil>Aeperol</lil>
-                <li>Baileys</li>
-                <li>Kahlua</li>
-                <li>RumChata</li>
-                <li>Grand Marnier</li>
-                <li>Pucker</li>
-                <li>Frangelico</li>
-                <li>Fireball</li>
-                <li>Southern Comfort</li>
-                <li>Blue Curacao</li>
-            </ul>
+        <div class="alcohol">
+            <h2>Pick Your Poison</h2>
 
-            <button type="submit" id="submit-btn">
-        </div>
+            <label id="drink-select">Choose an alcohol:</label>
 
-        <!-- returns list of recipes that can be made -->
-        <div class="recipes">
-            <h3>Your Concoctions!</h3>
-            <div Class="list"></div>
-            <p></p>
-        </div>
+            <select name="drinks" id="spirits">
+                <option value="">--Please choose an option--</option>
+                <option value="vodka">Vodka</option>
+                <option value="whiskey">Whiskey</option>
+                <option value="tequila">Tequila</option>
+                <option value="rum">Rum</option>
+                <option value="gin">Gin</option>
+                <option value="mezcal">Mezcal</option>
+                <option value="brandy">Brandy</option>
+                <option value="scotch">Scotch</option>
+                <option value="red wine">Red Wine</option>
+                <option value="white wine">White Wine</option>
+                <option value="beer">Beer</option>
+                <option value="champagne">Champagne</option>
+            </select>
+
+            <!-- comment -->
+            <!-- returns list of recipes that can be made -->
+            <div class="results">
+                <h3>Your Concoctions!</h3>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="" id="drink-image">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1 class="drink-name"></h1>
+                            <p class="description"></p>
+                            <p class="recipe"></p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./Assets/script.js"></script>
 </body>
 
