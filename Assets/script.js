@@ -4,7 +4,7 @@
 // need to append variables to parts of html
 
 // create eventlistener button for search Bar
-var nameEl = $('#drink-name')
+var nameEl = $('.drink-name')
 
 $(document).ready(function () {
     $('select').on('change', function () {
@@ -21,7 +21,7 @@ $(document).ready(function () {
                 console.log(data)
                 var name = data.drinks[0].strDrink
                 nameEl.text("Drink Name: " + name)
-                var image = $('#image')
+                var image = $('#drink-image')
                 var thumb = data.drinks[0].strDrinkThumb
                 image.attr('src', thumb)
                 image.attr('data', data.drinks[0].idDrink)
@@ -46,5 +46,6 @@ function getIngredients (){
     })
     .then(function (data) {
         console.log(data)
+        var info = ""
     })
 }
