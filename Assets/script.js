@@ -1,3 +1,5 @@
+
+
 // list of variables
 // const api key variable
 
@@ -15,7 +17,7 @@ var results = $('.results')
 $(document).ready(function () {
     $('select').on('change', function () {
         var selectedValue = $(this).val()
-
+        console.log (selectedValue)
         var api = `https://thecocktaildb.com/api/json/v1/1/filter.php?i=` + selectedValue
         fetch(api)
             .then(function (response) {
@@ -25,8 +27,9 @@ $(document).ready(function () {
             .then(function (data) {
                 
                 results.html("")
+                console.log (data)
                 // var name = data.drinks[0].strDrink
-                // nameEl.text("Drink Name: " + name)
+                // $('.drink-name').text("Drink Name: " + name)
                 
                 // var image = $('#drink-image')
                 // var thumb = data.drinks[0].strDrinkThumb
@@ -34,10 +37,22 @@ $(document).ready(function () {
                 // image.attr('src', thumb)
                 // image.attr('data', data.drinks[0].idDrink)
 
-                for (let i = 0; i < 10; i++) {
-                    
+//if my data >10, randomly select 10 and look it through my next function.  if <10 display run it through my next funciton ats is.             
+            var allDrinks = data.drinks;
+            var RandomDrinks = []
+            for (let i = 0; i < Math.min(10, allDrinks.length); i++) {
+                let randomIndex = Math.floor(Math.random() * allDrinks.length);
+                RandomDrinks.push(allDrinks[randomIndex]);
+                allDrinks.splice(randomIndex, 1);
+              }
+              
+              console.log(RandomDrinks);
+            
+            
+            for (let i = 0; i < RandomDrinks.length; i++)  {
+               
                     // new api start
-                    var newApi = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${data.drinks[i].idDrink}`
+                    var newApi = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${RandomDrinks[i].idDrink}`
                     // var back;
                     fetch(newApi)
                     .then(function (response) {
@@ -45,6 +60,7 @@ $(document).ready(function () {
                     })
                     .then(function (juice) {
                         console.log(juice)
+                        const drinkInfo = juice.drinks[0]
                         // var inner = $('.flip-card-inner')
                         // var info = juice.drinks[0].strInstructions
                         // infoEl.text("How to make: " + info)
@@ -60,7 +76,7 @@ $(document).ready(function () {
                         inner.append(front)
                         
                         var img = $('<img>')
-                        img.attr('src', data.drinks[i].strDrinkThumb)
+                        img.attr('src', drinkInfo.strDrinkThumb)
                         front.append(img)
                         
                             
@@ -70,14 +86,14 @@ $(document).ready(function () {
                             
                             var drinkName = $('<h4>')
                             drinkName.addClass('drink-name')
-                            drinkName.text(juice.drinks[0].strDrink)
+                            drinkName.text(drinkInfo.strDrink)
                             back.append(drinkName)
-                            console.log(juice.drinks[0].strDrink)
+                            console.log(drinkInfo.strDrink)
                             
                 
                             var instruct = $('<p>')
                             instruct.addClass('instructions')
-                            instruct.text(juice.drinks[0].strInstructions)
+                            instruct.text(drinkInfo.strInstructions)
                             back.append(instruct)
                             
                             inner.append(back)
@@ -91,11 +107,16 @@ $(document).ready(function () {
     })
 })
 
-// create a randomize function that goes through drink list array
-// math.random
-// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will
-// google fonts. background image.
-// second API and local storage
+fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
+  .then(response => response.json())
+  .then(data => console.log(data.joke))
+  .catch(error => console.error(error));
+
+// create a randomize function that goes through drink list array done needs review
+// math.random done needs review
+// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will still WIP but looking good. Layout of image displayed, too large?? 
+// google fonts. background image. change google fonts image at teh top should we be adding non dynamic 
+// second API and local storage What Key Value do we want to store in local storeage?
 // leaflet.js
 // random dad joke API
 // presentation & README
