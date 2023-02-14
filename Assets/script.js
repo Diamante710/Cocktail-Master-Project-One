@@ -91,20 +91,19 @@ $(document).ready(function () {
               var savBtn= $('<button>')
               savBtn.text('Save Drink')
               savBtn.attr('data-drink', drinkInfo.strDrink);
-              savBtn.addClass('save-button')
-              back.append(savBtn)
-            
-              function drinkStorage(event){
-                var savBtn = $(event.target); 
-                console.log(saveBtn)
-            
-            }
-            
               
+              savBtn.addClass('save-button')
+              back.append(savBtn)      
               inner.append(back);
               results.append(card);
+
+              savBtn.on('click', function() {
+                const drinkName = $(this).attr('data-drink', drinkInfo.strDrink);
+                console.log(drinkName)
             });
+            })
         }
+          
         return data;
       });
     fetch("https://icanhazdadjoke.com/", {
@@ -115,21 +114,26 @@ $(document).ready(function () {
       })
       .then(function (data) {
         results.html("");
-        console.log(data);
         jokeText = data.joke;
-
-        const jokeDiv = document.querySelector(".joke");
-        jokeDiv.innerHTML = '',
-        jokeDiv.innerHTML += jokeText;
-
-        localStorage.setItem('joke', jokeText)
-
-        
-     //   }
-
-        
-
-      });
+        console.log(jokeText);
+        var jokeEl = document.querySelector(".joke");
+        jokeEl.innerHTML = '',
+        jokeEl.innerHTML += jokeText;
+       
+        var previousJokes = [];
+        var newJokeText = previousJokes.push(jokeText)
+     
+        localStorage.setItem('jokeTexts', JSON.stringify(previousJokes));
+      
+        jokeTexts = JSON.parse(localStorage.getItem('previousJokes'));
+          
+          var jokeList = document.querySelector('#joke-list');
+          for (let i = 0; i < previousJokes.length; i++) {
+            var li = document.createElement('li');
+            li.textContent = previousJokes[i];
+            jokeList.appendChild(li);
+          }
+    })
   });
 });
 
