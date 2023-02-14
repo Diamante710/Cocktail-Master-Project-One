@@ -1,6 +1,4 @@
 
-
-
 var nameEl = $('.drink-name')
 var infoEl = $('.instructions')
 var itemsEl = $('.ingredients')
@@ -24,11 +22,10 @@ $(document).ready(function () {
                 results.html("")
                 console.log(data)
 
-
                 //if my data >10, randomly select 10 and look it through my next function.  if <10 display run it through my next funciton ats is.             
                 var allDrinks = data.drinks;
                 var RandomDrinks = []
-                for (let i = 0; i < Math.min(10, allDrinks.length); i++) {
+                for (let i = 0; i < Math.min(9, allDrinks.length); i++) {
                     let randomIndex = Math.floor(Math.random() * allDrinks.length);
                     RandomDrinks.push(allDrinks[randomIndex]);
                     allDrinks.splice(randomIndex, 1);
@@ -92,19 +89,18 @@ $(document).ready(function () {
                 }
                 return data;
             })
+
+        fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
+            .then(function (response) {
+                response.json()
+
+                    .then(function (data) {
+                        console.log(data.joke)
+                        // .catch(error => console.error(error));
+                    })
+            })
     })
 })
 
-fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
-  .then(response => response.json())
-  .then(data => console.log(data.joke))
-  .catch(error => console.error(error));
-
-// create a randomize function that goes through drink list array done needs review
-// math.random done needs review
-// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will still WIP but looking good. Layout of image displayed, too large?? 
-// google fonts. background image. change google fonts image at teh top should we be adding non dynamic 
-// second API and local storage What Key Value do we want to store in local storeage?
-// leaflet.js
-// random dad joke API
-// presentation & README
+// presentation 
+// README
