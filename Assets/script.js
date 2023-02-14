@@ -91,11 +91,8 @@ $(document).ready(function () {
     })
 })
 
-// create a randomize function that goes through drink list array
-// math.random
-// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will
-// google fonts. background image.
-// second API and local storage
-// leaflet.js
+
+
+// local storage
 // random dad joke API
 // presentation & README
