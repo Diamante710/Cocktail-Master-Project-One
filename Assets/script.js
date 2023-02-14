@@ -9,6 +9,7 @@ var infoEl = $(".instructions");
 var itemsEl = $(".ingredients");
 var results = $(".results");
 var jokes = $(".joke");
+var jokeHistoryDiv = document.querySelector('.joke-history');
 // these variables are for element creation
 
 $(document).ready(function () {
@@ -120,12 +121,20 @@ $(document).ready(function () {
         const jokeDiv = document.querySelector(".joke");
         jokeDiv.innerHTML = '',
         jokeDiv.innerHTML += jokeText;
+
+        localStorage.setItem('joke', jokeText)
+
+        
+     //   }
+
+        
+
       });
   });
 });
 
 
-buttonEl.on('click', drinkStorage)
+
 
 //
 
