@@ -1,7 +1,3 @@
-// list of variables
-// const api key variable
-
-// need to append variables to parts of html
 
 // create eventlistener button for search Bar
 var nameEl = $(".drink-name");
@@ -127,12 +123,15 @@ $(document).ready(function () {
 
 buttonEl.on('click', drinkStorage)
 
-//
+fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
+  .then(response => response.json())
+  .then(data => console.log(data.joke))
+  .catch(error => console.error(error));
 
 // create a randomize function that goes through drink list array done needs review
 // math.random done needs review
-// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will still WIP but looking good. Layout of image displayed, too large??
-// google fonts. background image. change google fonts image at teh top should we be adding non dynamic
+// more CSS. make sexy. polish. grid in & grid out. prettier. bad if you will still WIP but looking good. Layout of image displayed, too large?? 
+// google fonts. background image. change google fonts image at teh top should we be adding non dynamic 
 // second API and local storage What Key Value do we want to store in local storeage?
 // leaflet.js
 // random dad joke API
