@@ -10,8 +10,6 @@ header {
   text-align: center
 }
 
-
-
 .how-to {
   text-align: center
 }
@@ -42,7 +40,6 @@ h2 {
   width: 300px;
   height: 200px;
   border: 1px solid #f1f1f1;
-
   perspective: 1000px;
 
 }

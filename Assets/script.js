@@ -65,7 +65,6 @@ $(document).ready(function () {
                             img.attr('src', drinkInfo.strDrinkThumb)
                             front.append(img)
 
-
                             var back = $('<div>')
                             back.addClass('flip-card-back')
 
@@ -80,6 +79,11 @@ $(document).ready(function () {
                             instruct.addClass('instructions')
                             instruct.text(drinkInfo.strInstructions)
                             back.append(instruct)
+
+                            // var ingredients = $('<p>')
+                            // ingredients.addClass('ingredients')
+                            // ingredients.text(drinkInfo.strIngredient1 + strIngredient2 + strIngredient3)
+                            // back.append(ingredients)
 
                             inner.append(back)
                             results.append(card)
