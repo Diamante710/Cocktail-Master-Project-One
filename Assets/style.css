@@ -6,7 +6,19 @@
   background: rgba(0, 212, 255, 1);
 }
 
+.joke {
+  color: rgb(184, 35, 184);
+  font-weight: bold;
+  font-size: larger;
+  text-align: center;
+  padding-bottom: 10px;
+}
 
+#joke-list {
+  padding: 15px;
+  list-style: none;
+
+}
 .how-to {
   text-align: center;
   margin-bottom: 15px

@@ -113,7 +113,7 @@ $(document).ready(function () {
         jokeText = data.joke;
         console.log(jokeText);
         var jokeEl = document.querySelector(".joke");
-        jokeEl.innerHTML = '',
+        jokeEl.innerHTML = "Hilariously Funny Joke: " + '',
         jokeEl.innerHTML += jokeText;
        
         var previousJokes = [];
