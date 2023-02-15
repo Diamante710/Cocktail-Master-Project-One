@@ -5,6 +5,7 @@ var infoEl = $(".instructions");
 var itemsEl = $(".ingredients");
 var results = $(".results");
 var jokes = $(".joke");
+var jokeHistoryDiv = document.querySelector('.joke-history');
 // these variables are for element creation
 
 $(document).ready(function () {
@@ -86,20 +87,19 @@ $(document).ready(function () {
               var savBtn= $('<button>')
               savBtn.text('Save Drink')
               savBtn.attr('data-drink', drinkInfo.strDrink);
-              savBtn.addClass('save-button')
-              back.append(savBtn)
-            
-              function drinkStorage(event){
-                var savBtn = $(event.target); 
-                console.log(saveBtn)
-            
-            }
-            
               
+              savBtn.addClass('save-button')
+              back.append(savBtn)      
               inner.append(back);
               results.append(card);
+
+              savBtn.on('click', function() {
+                const drinkName = $(this).attr('data-drink', drinkInfo.strDrink);
+                console.log(drinkName)
             });
+            })
         }
+          
         return data;
       });
     fetch("https://icanhazdadjoke.com/", {
@@ -110,18 +110,31 @@ $(document).ready(function () {
       })
       .then(function (data) {
         results.html("");
-        console.log(data);
         jokeText = data.joke;
-
-        const jokeDiv = document.querySelector(".joke");
-        jokeDiv.innerHTML = '',
-        jokeDiv.innerHTML += jokeText;
-      });
+        console.log(jokeText);
+        var jokeEl = document.querySelector(".joke");
+        jokeEl.innerHTML = "Hilariously Funny Joke: " + '',
+        jokeEl.innerHTML += jokeText;
+       
+        var previousJokes = [];
+        var newJokeText = previousJokes.push(jokeText)
+     
+        localStorage.setItem('jokeTexts', JSON.stringify(previousJokes));
+      
+        jokeTexts = JSON.parse(localStorage.getItem('previousJokes'));
+          
+          var jokeList = document.querySelector('#joke-list');
+          for (let i = 0; i < previousJokes.length; i++) {
+            var li = document.createElement('li');
+            li.textContent = previousJokes[i];
+            jokeList.appendChild(li);
+          }
+    })
   });
 });
 
 
-buttonEl.on('click', drinkStorage)
+
 
 // fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
 //   .then(response => response.json())
