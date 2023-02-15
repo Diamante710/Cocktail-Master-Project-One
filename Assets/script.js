@@ -123,10 +123,10 @@ $(document).ready(function () {
 
 buttonEl.on('click', drinkStorage)
 
-fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
-  .then(response => response.json())
-  .then(data => console.log(data.joke))
-  .catch(error => console.error(error));
+// fetch("https://icanhazdadjoke.com/", { headers: { "Accept": "application/json" } })
+//   .then(response => response.json())
+//   .then(data => console.log(data.joke))
+//   .catch(error => console.error(error));
 
 // create a randomize function that goes through drink list array done needs review
 // math.random done needs review
